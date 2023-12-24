@@ -1,0 +1,22 @@
+{
+  "name": "video-frent",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Timmy08808/video-frent.git",
+  "author": "ben <worldbenjj@gmail.com>",
+  "scripts": {
+    "dev": "nuxt dev"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@nuxtjs/axios": "^5.13.6",
+    "axios": "^1.6.2",
+    "nuxt": "^3.8.2"
+  },
+  "devDependencies": {
+    "@element-plus/nuxt": "^1.0.7",
+    "@nuxtjs/proxy": "^2.1.0",
+    "element-plus": "^2.4.4",
+    "sass": "^1.69.5"
+  }
+}
