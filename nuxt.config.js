@@ -1,6 +1,6 @@
-const { resolve } = require('path')
+import { resolve } from 'node:path'
 
-module.exports = {
+export default defineNuxtConfig({
   css: [
     '@/assets/css/global.scss'
   ],
@@ -10,4 +10,4 @@ module.exports = {
   alias: {
     "@": resolve(__dirname, './')
   }
-}
+})

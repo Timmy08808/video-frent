@@ -13,18 +13,35 @@
           <el-input v-model="form.password" placeholder="Password" />
         </el-form-item>
       </el-form>
-      <el-row justify="center">
-        <el-button type="primary" :loading="loading" color="#626aef" @click="handleLogin">Login</el-button>
-        <el-button type="primary" :loading="loading" color="#626aef" plain @click="handleRegister">Register</el-button>
-      </el-row>
+      
+      <template v-if="isLogin">
+        <el-row justify="center">
+          <el-button type="primary" :loading="loading" color="#626aef" @click="handleLogin">登录</el-button>
+        </el-row>
+        <el-row justify="center" style="margin-top: 12px">
+          <el-button type="primary"  text @click="isLogin = false">前往注册</el-button>
+        </el-row>
+      </template>
+      <template v-else>
+        <el-row justify="center">
+          <el-button type="primary" :loading="loading" color="#626aef" @click="handleRegister">注册</el-button>
+        </el-row>
+        <el-row justify="center" style="margin-top: 12px">
+          <el-button type="primary"  text @click="isLogin = true">前往登录</el-button>
+        </el-row>
+      </template>
     </div>
   </div>
 </template>
 <script lang="ts" setup>
 import { reactive, ref } from 'vue'
-import { login, register } from '@/api'
 import { ElMessage } from 'element-plus'
+import { login, register } from '@/api'
+import { setLS } from '@/utils/storage'
+
+
 const loading = ref(false)
+const isLogin = ref (true)
 const form = reactive({
   name: '',
   password: ''
@@ -36,6 +53,9 @@ const handleLogin = async () => {
   loading.value = false
   if (res) {
     ElMessage.success('登录成功')
+    setLS('user', res)
+    setLS('token', res.token)
+    navigateTo('/')
   }
 }
 
@@ -45,6 +65,9 @@ const handleRegister = async () => {
   loading.value = false
   if (res) {
     ElMessage.success('注册成功')
+    setLS('user', res)
+    setLS('token', res.token)
+    navigateTo('/')
   }
 }
 </script>

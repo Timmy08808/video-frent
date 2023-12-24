@@ -9,14 +9,12 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@nuxtjs/axios": "^5.13.6",
     "axios": "^1.6.2",
+    "element-plus": "^2.4.4",
     "nuxt": "^3.8.2"
   },
   "devDependencies": {
     "@element-plus/nuxt": "^1.0.7",
-    "@nuxtjs/proxy": "^2.1.0",
-    "element-plus": "^2.4.4",
     "sass": "^1.69.5"
   }
 }

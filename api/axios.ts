@@ -35,7 +35,7 @@ const req = method => {
             url,
             data,
             headers: config?.headers ?? {}
-        }).then(res => ({ res }), err => ({ err }))
+        }).then(res => ({ res: res?.data ?? res, response: res }), err => ({ err }))
     }
 }
 
